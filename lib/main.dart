@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:onlinebook/constants.dart';
+import 'package:onlinebook/screens/home_screen.dart';
+import 'package:onlinebook/widgets/rounded_button.dart';
 
 void main() {
   runApp(MyApp());
@@ -38,27 +40,22 @@ class MyHomePage extends StatelessWidget {
                 text: TextSpan(
                     style: Theme.of(context).textTheme.display3,
                     children: [
-                  TextSpan(text: "flamin"),
+                  TextSpan(text: "Book app "),
                   TextSpan(
                       text: "go.",
                       style: TextStyle(fontWeight: FontWeight.bold))
                 ])),
             SizedBox(height: 30),
-            Container(
-              margin: EdgeInsets.symmetric(vertical: 16),
-              padding: EdgeInsets.symmetric(vertical: 16, horizontal: 30),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(30),
-                  boxShadow: [
-                    BoxShadow(
-                        offset: Offset(0, 15),
-                        blurRadius: 30,
-                        color: Color(0xFF666666).withOpacity(0.11))
-                  ]),
-              child: Text(
-                "start reading",
-                style: TextStyle(color: Colors.black, fontSize: 16, fontWeight: FontWeight.bold),
+            SizedBox(
+              width: MediaQuery.of(context).size.width * .6,
+              child: RoundedButton(
+                press: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return HomeScreen();
+                  }));
+                },
+                text: "시작하기",
+                fontSize: 20,
               ),
             )
           ],
